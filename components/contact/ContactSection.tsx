@@ -27,7 +27,7 @@ export function ContactSection() {
                         <h2 className="text-3xl md:text-6xl font-black text-brand-black uppercase tracking-tighter leading-tight">
                             Ready to Transform<br className="hidden md:block" />
                             <span className="text-white" style={{ WebkitTextStroke: "2px black" }}>
-                                Your Business?
+                                Your Buziness?
                             </span>
                         </h2>
                         <p className="text-sm md:text-base font-medium text-brand-black/70 mt-4 max-w-2xl mx-auto">

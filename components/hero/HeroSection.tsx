@@ -78,7 +78,7 @@ export function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                    Business 365 manages your entire operation in a unified,
+                    buziness365 manages your entire operation in a unified,
                     immersive workspace. Enter a new dimension of productivity.
                 </motion.p>
 

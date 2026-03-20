@@ -33,7 +33,7 @@ export async function POST(request: Request) {
             body: JSON.stringify({
                 access_key: accessKey,
                 subject: `New Pricing Inquiry from ${name}`,
-                from_name: "Business 365 Website",
+                from_name: "buziness365 Website",
                 name,
                 email,
                 company: company || "Not provided",

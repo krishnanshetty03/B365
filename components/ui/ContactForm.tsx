@@ -58,7 +58,7 @@ export function ContactForm({ onClose }: ContactFormProps) {
                 body: JSON.stringify({
                     access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
                     subject: `New Pricing Inquiry from ${formData.name}`,
-                    from_name: "Business 365 Website",
+                    from_name: "buziness365 Website",
                     ...formData,
                     company: formData.company || "Not provided",
                     phone: formData.phone || "Not provided",

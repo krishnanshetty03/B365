@@ -18,11 +18,11 @@ export function Header() {
                 <Link href="/" className="flex items-center gap-2 border-2 border-transparent hover:border-brand-black transition-colors rounded-xl p-1 -ml-1 z-50">
                     <img
                         src="/logo.png"
-                        alt="Business 365 Logo"
+                        alt="buziness365 Logo"
                         className="w-10 h-10 md:w-12 md:h-12 object-contain"
                     />
                     <span className="text-xl font-black tracking-tighter text-brand-black uppercase hidden lg:inline-block">
-                        Business 365
+                        buziness365
                     </span>
                 </Link>
 
