@@ -160,7 +160,7 @@ export function ContactForm({ onClose }: ContactFormProps) {
             </div>
 
             {/* Company & Phone row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label className="block text-xs font-black text-brand-black uppercase tracking-wider mb-1.5">
                         Company

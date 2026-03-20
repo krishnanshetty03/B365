@@ -7,7 +7,7 @@
   --color-brand-yellow: #FFE000;
   --color-brand-black: #000000;
 
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {

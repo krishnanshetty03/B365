@@ -11,7 +11,7 @@ export function ContactSection() {
                     <div className="w-16 h-4 bg-brand-black skew-x-12" />
                 </div>
 
-                <div className="bg-brand-yellow border-3 border-brand-black p-6 md:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative"
+                <div className="bg-brand-yellow border-3 border-brand-black p-4 md:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative"
                     style={{ borderWidth: "3px" }}>
 
                     {/* Shadow layer to ensure it stands out from the yellow background */}
@@ -24,8 +24,8 @@ export function ContactSection() {
                                 Let's Build Together
                             </span>
                         </div>
-                        <h2 className="text-4xl md:text-6xl font-black text-brand-black uppercase tracking-tighter leading-tight">
-                            Ready to Transform<br />
+                        <h2 className="text-3xl md:text-6xl font-black text-brand-black uppercase tracking-tighter leading-tight">
+                            Ready to Transform<br className="hidden md:block" />
                             <span className="text-white" style={{ WebkitTextStroke: "2px black" }}>
                                 Your Business?
                             </span>

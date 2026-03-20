@@ -14,7 +14,7 @@ export function Testimonials() {
     return (
         <section className="py-20 border-t-2 border-brand-black bg-white">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl md:text-5xl font-black text-brand-black uppercase mb-12 text-center tracking-tighter">
+                <h2 className="text-3xl md:text-5xl font-black text-brand-black uppercase mb-8 md:mb-12 text-center tracking-tighter leading-tight">
                     What Our Partners Say
                 </h2>
 
@@ -26,7 +26,7 @@ export function Testimonials() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="w-full md:w-[45%] lg:w-[22%] bg-brand-yellow p-6 border-2 border-brand-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative"
+                            className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] bg-brand-yellow p-6 border-2 border-brand-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative"
                         >
                             <Quote className="w-8 h-8 text-brand-black mb-4" />
                             <p className="text-lg font-bold text-brand-black mb-6 leading-tight">"{test.quote}"</p>

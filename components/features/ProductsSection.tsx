@@ -54,8 +54,8 @@ export function ProductsSection() {
                         <div className="inline-block px-4 py-1.5 border-2 border-brand-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6 transform -rotate-2">
                             <span className="font-bold text-brand-black uppercase tracking-wider">Our Core Products</span>
                         </div>
-                        <h2 className="text-5xl md:text-7xl font-black text-brand-black uppercase tracking-tighter mb-6">
-                            Intelligent <br />
+                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-brand-black uppercase tracking-tighter mb-4 md:mb-6 leading-tight md:leading-none">
+                            Intelligent <br className="hidden md:block" />
                             <span className="text-white text-stroke-2">Tools</span>
                         </h2>
                         <p className="text-xl font-bold text-brand-black/80">
@@ -63,7 +63,7 @@ export function ProductsSection() {
                         </p>
                     </div>
 
-                 </motion.div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {products.map((product, index) => (

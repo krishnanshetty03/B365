@@ -97,7 +97,7 @@ export function DomainsGrid() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-4xl md:text-6xl font-black text-brand-black uppercase mb-4 tracking-tighter">
+                    <h2 className="text-3xl md:text-6xl font-black text-brand-black uppercase mb-4 tracking-tighter leading-tight">
                         Comprehensive Solutions
                     </h2>
                     <p className="text-xl font-bold text-brand-black/80 max-w-2xl mx-auto">

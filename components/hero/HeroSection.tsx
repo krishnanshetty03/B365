@@ -8,7 +8,7 @@ import { Globe, Users, TrendingUp, ShieldCheck } from "lucide-react";
 
 export function HeroSection() {
     return (
-        <section className="relative w-full py-24 md:py-36 min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
+        <section className="relative w-full py-28 md:py-36 min-h-[600px] md:min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
             <DimensionBackground />
 
             {/* Floating Cards - Positioned absolutely in the 3D space */}
@@ -61,7 +61,7 @@ export function HeroSection() {
                 </motion.div>
 
                 <motion.h1
-                    className="text-5xl md:text-8xl font-black tracking-tighter text-brand-black mb-6 uppercase"
+                    className="text-4xl md:text-5xl lg:text-8xl font-black tracking-tighter text-brand-black mb-6 uppercase leading-tight"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
