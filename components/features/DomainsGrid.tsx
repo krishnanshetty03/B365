@@ -3,10 +3,16 @@
 import { motion } from "framer-motion";
 import {
     Bot, Rocket, Database, Glasses, Sprout, Briefcase,
-    Film, Users, Shirt, Megaphone, Gift, GraduationCap, Mic
+    Film, Users, Shirt, Megaphone, Gift, GraduationCap, Mic, Stethoscope
 } from "lucide-react";
 
 const domains = [
+    {
+        icon: Stethoscope,
+        title: "VR Care",
+        description: "Specialized healthcare solutions focusing on operational excellence and patient relationship management.",
+        services: ["Hospital CRM ", "Hospital Operations", "Management", "Query Resolution"],
+    },
     {
         icon: Rocket,
         title: "Startup Incubation",

@@ -1,42 +1,58 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
 
-const testimonials = [
-    { quote: "Their mentorship and resource-sharing in the incubation phase were pivotal. We secured our Series A funding.", author: "Sarah Johnson", role: "CEO, TechStartup Inc" },
-    { quote: "Our data infrastructure transformation was seamless. We can now process 10x more data with 40% less overhead.", author: "Michael Chen", role: "CTO, DataFlow" },
-    { quote: "The AR solutions they developed for our store completely changed how customers interact with products.", author: "Emily Rodriguez", role: "Marketing Dir, RetailCorp" },
-    { quote: "Integrating their IoT systems into our farms has seen a 30% increase in yield and reduction in water usage.", author: "David Kumar", role: "Ops Head, AgriGrowth" },
+const clients = [
+    { name: "Vyntrix", logo: "/clients/vyntrix.png" },
+    { name: "Jade Media Works", logo: "/clients/jade-final.png" },
+    { name: "Dr. Dere", logo: "/clients/dr-dere.png" },
+    { name: "Global Solutions", logo: "/clients/client-1.png" },
+    { name: "Partner Plus", logo: "/clients/client-2.png" },
 ];
 
 export function Testimonials() {
-    return (
-        <section className="py-20 border-t-2 border-brand-black bg-white">
-            <div className="container mx-auto px-4">
-                <h2 className="text-3xl md:text-5xl font-black text-brand-black uppercase mb-8 md:mb-12 text-center tracking-tighter leading-tight">
-                    What Our Partners Say
-                </h2>
+    // Duplicate the array to create a seamless loop
+    const duplicatedClients = [...clients, ...clients, ...clients, ...clients];
 
-                <div className="flex flex-wrap justify-center gap-8">
-                    {testimonials.map((test, index) => (
-                        <motion.div
+    return (
+        <section className="py-20 border-t-2 border-brand-black bg-white overflow-hidden">
+            <div className="container mx-auto px-4 mb-16">
+                <h2 className="text-3xl md:text-5xl font-black text-brand-black uppercase text-center tracking-tighter leading-tight">
+                    Our clients
+                </h2>
+            </div>
+
+            <div className="relative w-full flex overflow-hidden">
+                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+                
+                <motion.div
+                    className="flex items-center gap-16 md:gap-32 px-8"
+                    animate={{
+                        x: ["0%", "-50%"],
+                    }}
+                    transition={{
+                        x: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 20,
+                            ease: "linear",
+                        },
+                    }}
+                >
+                    {duplicatedClients.map((client, index) => (
+                        <div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] bg-brand-yellow p-6 border-2 border-brand-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative"
+                            className="flex-shrink-0 h-14 md:h-24 w-auto relative flex items-center justify-center"
                         >
-                            <Quote className="w-8 h-8 text-brand-black mb-4" />
-                            <p className="text-lg font-bold text-brand-black mb-6 leading-tight">"{test.quote}"</p>
-                            <div className="border-t-2 border-brand-black pt-4">
-                                <p className="font-black text-brand-black uppercase">{test.author}</p>
-                                <p className="text-xs font-bold text-brand-black/70 uppercase tracking-widest">{test.role}</p>
-                            </div>
-                        </motion.div>
+                            <img
+                                src={client.logo}
+                                alt={client.name}
+                                className="h-full w-auto object-contain transition-transform duration-300 hover:scale-110"
+                            />
+                        </div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
