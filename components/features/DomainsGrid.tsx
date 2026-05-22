@@ -9,7 +9,7 @@ import {
 const domains = [
     {
         icon: Stethoscope,
-        title: "VR Care",
+        title: "Healthcare",
         description: "Specialized healthcare solutions focusing on operational excellence and patient relationship management.",
         services: ["Hospital CRM ", "Hospital Operations", "Management", "Query Resolution"],
     },
