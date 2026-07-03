@@ -1,44 +1,92 @@
 "use client";
 
 import { ContactForm } from "@/components/ui/ContactForm";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
+
+const contactInfo = [
+    { icon: Mail, label: "Email", value: "enquiry@buziness365.com" },
+    { icon: MapPin, label: "Presence", value: "India · USA · UK" },
+    { icon: Phone, label: "WhatsApp", value: "Connect via WhatsApp" },
+    { icon: Clock, label: "Response Time", value: "Within 4 Hours" },
+];
 
 export function ContactSection() {
     return (
-        <section id="pricing" className="py-24 md:py-36 bg-brand-yellow">
-            <div className="container mx-auto px-4 max-w-4xl">
-                {/* Visual anchor / decoration */}
-                <div className="flex justify-center mb-12">
-                    <div className="w-16 h-4 bg-brand-black skew-x-12" />
-                </div>
-
-                <div className="bg-brand-yellow border-3 border-brand-black p-4 md:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative"
-                    style={{ borderWidth: "3px" }}>
-
-                    {/* Shadow layer to ensure it stands out from the yellow background */}
-                    <div className="absolute inset-0 bg-white -translate-x-3 -translate-y-3 -z-10 border-3 border-brand-black" style={{ borderWidth: "3px" }} />
-
-                    {/* Header */}
-                    <div className="mb-10 text-center relative z-10">
-                        <div className="inline-block px-3 py-1 border-2 border-brand-black bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-6 transform -rotate-2">
-                            <span className="font-bold text-brand-black uppercase tracking-wider text-sm">
-                                Let's Build Together
-                            </span>
-                        </div>
-                        <h2 className="text-3xl md:text-6xl font-black text-brand-black uppercase tracking-tighter leading-tight">
-                            Ready to Transform<br className="hidden md:block" />
-                            <span className="text-white" style={{ WebkitTextStroke: "2px black" }}>
-                                Your Buziness?
-                            </span>
-                        </h2>
-                        <p className="text-sm md:text-base font-medium text-brand-black/70 mt-4 max-w-2xl mx-auto">
-                            Get a custom pricing proposal tailored to your specific operational needs and scale.
-                        </p>
+        <section id="pricing" className="relative py-24 md:py-32 bg-surface dark:bg-surface">
+            {/* Scroll target for Contact links */}
+            <div id="contact" className="absolute -top-20" />
+            <div className="container mx-auto px-4">
+                {/* Header */}
+                <motion.div
+                    className="text-center mb-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-yellow/15 border border-brand-yellow/30 mb-5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow block" />
+                        <span className="text-xs font-bold text-brand-black dark:text-white uppercase tracking-widest">Let's Build Together</span>
                     </div>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-brand-black dark:text-white uppercase tracking-tighter leading-none mb-4">
+                        Ready to Transform
+                        <br />
+                        <span className="text-brand-yellow" style={{ WebkitTextStroke: "1.5px #0A0A0A" }}>
+                            Your Buziness?
+                        </span>
+                    </h2>
+                    <p className="text-base text-text-muted font-medium max-w-xl mx-auto">
+                        Get a custom proposal tailored to your specific needs and scale. We'll respond within 24 hours.
+                    </p>
+                </motion.div>
+
+                <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {/* Contact Info Sidebar */}
+                    <motion.div
+                        className="space-y-4"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                    >
+                        <div className="p-6 bg-brand-black dark:bg-brand-yellow rounded-2xl mb-6">
+                            <p className="text-brand-yellow dark:text-brand-black font-black text-lg uppercase tracking-tight mb-2">
+                                Enterprise Ready
+                            </p>
+                            <p className="text-brand-yellow/70 dark:text-brand-black/70 text-sm font-medium leading-relaxed">
+                                Custom pricing for teams of all sizes. From startups to Fortune 500 — we scale with you.
+                            </p>
+                        </div>
+
+                        {contactInfo.map(info => {
+                            const Icon = info.icon;
+                            return (
+                                <div
+                                    key={info.label}
+                                    className="flex items-start gap-4 p-4 bg-white dark:bg-surface-alt rounded-xl border border-border-base"
+                                >
+                                    <div className="w-9 h-9 rounded-lg bg-brand-yellow/15 border border-brand-yellow/30 flex items-center justify-center shrink-0">
+                                        <Icon className="w-4 h-4 text-brand-black dark:text-white" />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] font-black text-text-muted uppercase tracking-widest">{info.label}</p>
+                                        <p className="text-sm font-semibold text-brand-black dark:text-white mt-0.5">{info.value}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </motion.div>
 
                     {/* Form */}
-                    <div className="relative z-10">
+                    <motion.div
+                        className="lg:col-span-2 bg-white dark:bg-surface-alt rounded-2xl border border-border-base p-6 md:p-8 shadow-sm"
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.15 }}
+                    >
                         <ContactForm />
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

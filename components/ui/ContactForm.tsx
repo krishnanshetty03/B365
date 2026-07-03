@@ -6,9 +6,10 @@ import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 
 interface ContactFormProps {
     onClose?: () => void;
+    source?: "general" | "audit" | "business-os";
 }
 
-export function ContactForm({ onClose }: ContactFormProps) {
+export function ContactForm({ onClose, source = "general" }: ContactFormProps) {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -57,7 +58,11 @@ export function ContactForm({ onClose }: ContactFormProps) {
                 },
                 body: JSON.stringify({
                     access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-                    subject: `New Pricing Inquiry from ${formData.name}`,
+                    subject: source === "audit"
+                        ? `New AI & Business Audit Inquiry from ${formData.name}`
+                        : source === "business-os"
+                        ? `New Business OS Inquiry from ${formData.name}`
+                        : `New Pricing Inquiry from ${formData.name}`,
                     from_name: "buziness365 Website",
                     ...formData,
                     company: formData.company || "Not provided",
@@ -198,7 +203,13 @@ export function ContactForm({ onClose }: ContactFormProps) {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your requirements, team size, and what solutions interest you..."
+                    placeholder={
+                        source === "audit"
+                            ? "Tell us about your business operations, the software/tools you currently use, and what workflows or AI integrations you want to audit..."
+                            : source === "business-os"
+                            ? "Tell us about your business modules, how many users you have, and what integrations or features you need built inside your Business OS..."
+                            : "Tell us about your requirements, team size, and what solutions interest you..."
+                    }
                     rows={4}
                     className={`w-full px-4 py-3 bg-white border-2 font-medium text-brand-black placeholder:text-brand-black/40 focus:outline-none focus:ring-0 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] focus:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] transition-all resize-none ${errors.message ? "border-red-500" : "border-brand-black"
                         }`}

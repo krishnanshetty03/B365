@@ -1,96 +1,151 @@
 "use client";
 
 import { DimensionBackground } from "./DimensionBackground";
-import { Button } from "@/components/ui/button";
-import { FloatingCard } from "@/components/ui/FloatingCard";
 import { motion } from "framer-motion";
-import { Globe, Users, TrendingUp, ShieldCheck } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Users, Globe, Zap, Clock } from "lucide-react";
+
+const stats = [
+    { icon: Users,  value: "500+",  label: "Businesses Served" },
+    { icon: Globe,  value: "3",     label: "Countries" },
+    { icon: Zap,    value: "6",     label: "AI Products" },
+    { icon: Clock,  value: "24/7",  label: "Always On" },
+];
+
+const fadeUp = {
+    hidden:  { opacity: 0, y: 28 },
+    show:    { opacity: 1, y: 0 },
+};
+
+const stagger = {
+    hidden: {},
+    show:   { transition: { staggerChildren: 0.12 } },
+};
 
 export function HeroSection() {
     return (
-        <section className="relative w-full py-28 md:py-36 min-h-[600px] md:min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
+        <section className="relative w-full pt-12 pb-24 md:pt-20 md:pb-32 flex flex-col items-center justify-center overflow-hidden">
             <DimensionBackground />
 
-            {/* Floating Cards - Positioned absolutely in the 3D space */}
-            <FloatingCard className="top-[20%] left-[10%] hidden lg:block" delay={0}>
-                <div className="flex items-center gap-3">
-                    <div className="p-2 bg-brand-yellow border-2 border-brand-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <Globe className="w-6 h-6 text-brand-black" />
-                    </div>
-                    <div>
-                        <p className="text-xs font-bold text-brand-black uppercase tracking-wider">Global Reach</p>
-                        <p className="font-black text-brand-black">50+ Countries</p>
-                    </div>
-                </div>
-            </FloatingCard>
+            <div className="relative z-10 container mx-auto px-4 text-center">
 
-            <FloatingCard className="top-[30%] right-[10%] hidden lg:block" delay={1.5}>
-                <div className="flex items-center gap-3">
-                    <div className="p-2 bg-brand-yellow border-2 border-brand-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <Users className="w-6 h-6 text-brand-black" />
-                    </div>
-                    <div>
-                        <p className="text-xs font-bold text-brand-black uppercase tracking-wider">Active Users</p>
-                        <p className="font-black text-brand-black">10k+ Businesses</p>
-                    </div>
-                </div>
-            </FloatingCard>
-
-            <FloatingCard className="bottom-[25%] left-[15%] hidden lg:block" delay={0.5}>
-                <div className="flex items-center gap-3">
-                    <div className="p-2 bg-brand-yellow border-2 border-brand-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <TrendingUp className="w-6 h-6 text-brand-black" />
-                    </div>
-                    <div>
-                        <p className="text-xs font-bold text-brand-black uppercase tracking-wider">Growth</p>
-                        <p className="font-black text-brand-black">+120% YoY</p>
-                    </div>
-                </div>
-            </FloatingCard>
-
-            {/* Main Content */}
-            <div className="z-10 container mx-auto px-4 text-center">
+                {/* Live badge */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.88 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border-2 border-brand-black mb-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-black border border-brand-black mb-8 shadow-sm"
                 >
-                    <span className="flex h-2 w-2 rounded-full bg-brand-black animate-pulse" />
-                    <span className="text-sm font-bold text-brand-black">New: Enterprise Solutions Available</span>
+                    <span className="flex h-2 w-2 rounded-full bg-brand-yellow animate-pulse" />
+                    <span className="text-sm font-bold text-brand-yellow tracking-wide">Enterprise Solutions — Now Available</span>
                 </motion.div>
 
-                <motion.h1
-                    className="text-4xl md:text-5xl lg:text-8xl font-black tracking-tighter text-brand-black mb-6 uppercase leading-tight"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+                {/* Headline */}
+                <motion.div
+                    variants={stagger}
+                    initial="hidden"
+                    animate="show"
+                    className="mb-8"
                 >
-                    One Platform.<br />
-                    <span className="text-brand-black underline decoration-4 underline-offset-8">
-                        Infinite Dimensions.
-                    </span>
-                </motion.h1>
+                    <motion.h1
+                        variants={fadeUp}
+                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                        className="text-4xl sm:text-5xl md:text-7xl lg:text-[88px] font-black tracking-tighter leading-[0.92] mb-3 uppercase"
+                    >
+                        <span className="text-brand-black dark:text-white block">
+                            A Marketplace &amp;
+                        </span>
+                        <span className="text-brand-black dark:text-white block">
+                            Operating System
+                        </span>
+                        <span className="text-brand-black dark:text-white block">
+                            Built for Business.
+                        </span>
+                        <span
+                            className="text-brand-yellow block mt-2 text-5xl sm:text-6xl md:text-8xl lg:text-[96px] drop-shadow-[0_0_30px_rgba(245,200,0,0.3)] animate-pulse"
+                            style={{ WebkitTextStroke: "1px #0A0A0A" }}
+                        >
+                            365 Days a Year.
+                        </span>
+                    </motion.h1>
+                </motion.div>
 
+                {/* Subheadline */}
                 <motion.p
-                    className="max-w-2xl mx-auto text-lg md:text-2xl font-medium text-brand-black mb-10"
+                    className="max-w-2xl mx-auto text-base md:text-lg font-medium text-brand-black/65 dark:text-white/55 mb-10 leading-relaxed"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
+                    transition={{ duration: 0.55, delay: 0.38 }}
                 >
-                    buziness365 manages your entire operation in a unified,
-                    immersive workspace. Enter a new dimension of productivity.
+                    AI products, business solutions, and automation tools —
+                    built for every business, everywhere.
                 </motion.p>
 
+                {/* CTAs */}
                 <motion.div
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                    className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
                 >
+                    <a
+                        href="#solutions"
+                        className="ripple-on-click group inline-flex items-center gap-2 bg-brand-black text-brand-yellow font-black uppercase tracking-widest px-8 py-4 text-sm border-2 border-brand-black shadow-[4px_4px_0px_0px_#F5C800] hover:shadow-[1px_1px_0px_0px_#F5C800] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150 rounded-xl"
+                    >
+                        Explore Solutions <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                    <a
+                        href="/#contact"
+                        className="group inline-flex items-center gap-2 bg-transparent text-brand-black dark:text-white font-black uppercase tracking-widest px-8 py-4 text-sm border-2 border-brand-black/20 dark:border-white/20 hover:border-brand-yellow hover:text-brand-yellow transition-all duration-200 rounded-xl"
+                    >
+                        Book a Free Audit
+                    </a>
+                </motion.div>
+
+                {/* Stats Strip */}
+                <motion.div
+                    className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mb-10"
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.62 }}
+                >
+                    {stats.map((stat, i) => {
+                        const Icon = stat.icon;
+                        return (
+                            <motion.div
+                                key={i}
+                                className="flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-brand-black/10 dark:border-white/10 rounded-full shadow-sm"
+                                whileHover={{ scale: 1.04, y: -2 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                            >
+                                <Icon className="w-3.5 h-3.5 text-brand-yellow" />
+                                <span className="text-xs font-black text-brand-black dark:text-white tracking-wide">{stat.value}</span>
+                                <span className="text-xs font-medium text-brand-black/50 dark:text-white/40">{stat.label}</span>
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
+
+                {/* Location + Email */}
+                <motion.div
+                    className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.75 }}
+                >
+                    <div className="flex items-center gap-2 text-brand-black/45 dark:text-white/35">
+                        <MapPin className="w-3.5 h-3.5 text-brand-yellow" />
+                        <span className="text-sm font-semibold tracking-wide">India &nbsp;·&nbsp; USA &nbsp;·&nbsp; UK</span>
+                    </div>
+                    <div className="w-px h-4 bg-brand-black/20 dark:bg-white/20 hidden sm:block" />
+                    <a
+                        href="mailto:enquiry@buziness365.com"
+                        className="flex items-center gap-2 text-brand-black/45 dark:text-white/35 hover:text-brand-black dark:hover:text-white transition-colors"
+                    >
+                        <Mail className="w-3.5 h-3.5 text-brand-yellow" />
+                        <span className="text-sm font-semibold tracking-wide">enquiry@buziness365.com</span>
+                    </a>
                 </motion.div>
             </div>
-
         </section>
     );
 }
