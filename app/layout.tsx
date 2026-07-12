@@ -18,6 +18,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "buziness365 — A Marketplace & Operating System Built for Business.",
   description: "buziness365 is your global marketplace and business operating system — AI products, enterprise solutions, and automation tools built for every business, every day.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "buziness365 — A Marketplace & Operating System Built for Business.",
     description: "AI products, business solutions, and a full operating system — all in one platform.",
