@@ -2,10 +2,9 @@
 
 import { DimensionBackground } from "./DimensionBackground";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, MapPin, Users, Globe, Zap, Clock } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Globe, Zap, Clock } from "lucide-react";
 
 const stats = [
-    { icon: Users,  value: "500+",  label: "Businesses Served" },
     { icon: Globe,  value: "3",     label: "Countries" },
     { icon: Zap,    value: "6",     label: "AI Products" },
     { icon: Clock,  value: "24/7",  label: "Always On" },
@@ -144,6 +143,25 @@ export function HeroSection() {
                         <Mail className="w-3.5 h-3.5 text-brand-yellow" />
                         <span className="text-sm font-semibold tracking-wide">enquiry@buziness365.com</span>
                     </a>
+                </motion.div>
+
+                {/* Highlighted Services */}
+                <motion.div
+                    className="flex flex-wrap items-center justify-center gap-3 mt-6"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.85 }}
+                >
+                    {["AI-BaaS", "PaaS", "iPaaS", "SaaS"].map((service) => (
+                        <motion.span
+                            key={service}
+                            className="px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider text-brand-yellow bg-brand-yellow/10 dark:bg-brand-yellow/5 border border-brand-yellow/30 shadow-[0_0_15px_rgba(245,200,0,0.08)] select-none hover:bg-brand-yellow/20 hover:border-brand-yellow/50 transition-colors"
+                            whileHover={{ scale: 1.05, y: -1 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                        >
+                            {service}
+                        </motion.span>
+                    ))}
                 </motion.div>
             </div>
         </section>
