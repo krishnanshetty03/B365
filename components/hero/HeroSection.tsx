@@ -152,10 +152,10 @@ export function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.85 }}
                 >
-                    {["AI native - BaaS", "PaaS", "SaaS", "IPaaS", "OS"].map((service) => (
+                    {["AI native-  BaaS", "PaaS", "SaaS", "IPaaS", "OS"].map((service) => (
                         <motion.span
                             key={service}
-                            className="px-5 py-2 rounded-full text-xs font-black uppercase tracking-wider text-brand-black bg-brand-yellow border-2 border-brand-yellow shadow-[0_0_20px_rgba(245,200,0,0.2)] select-none hover:bg-brand-yellow/90 transition-all duration-150"
+                            className="px-5 py-2 rounded-full text-xs font-black tracking-wider text-brand-black bg-brand-yellow border-2 border-brand-yellow shadow-[0_0_20px_rgba(245,200,0,0.2)] select-none hover:bg-brand-yellow/90 transition-all duration-150"
                             whileHover={{ scale: 1.08, y: -2, boxShadow: "0 0 28px rgba(245,200,0,0.45)" }}
                             transition={{ type: "spring", stiffness: 400, damping: 12 }}
                         >
